@@ -57,7 +57,7 @@ set -e
 : ${XMLRPCS:="True"}
 : ${XMLRPCS_PORT:="8071"}
 : ${DB_HOST:="db"}
-: ${DB_FILTER:="^%d"}
+: ${DB_FILTER:="^%d$"}
 # Estas no las estabamos metiendo:
  ## echo 'logfile = '${LOGFILE:-"/var/log/odoo/odoo-server.log"} >> /opt/config/odoo-server.conf; \
  ## echo 'pg_path = '${PG_PATH:-None} >> /opt/config/odoo-server.conf; \
@@ -130,16 +130,16 @@ case "$1" in
 	-- | /opt/odoo/odoo-bin)
 		shift
 		if [[ "$1" == "scaffold" ]] ; then
-			exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@"
+			. /opt/venv/bin/activate && exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@"
 		else
-			exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@" "${DB_ARGS[@]}"
+			. /opt/venv/bin/activate && exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@" "${DB_ARGS[@]}"
 		fi
 		;;
 	-*)
-		exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@" "${DB_ARGS[@]}"
+		. /opt/venv/bin/activate && exec /opt/odoo/odoo-bin --config $OPENERP_SERVER "$@" "${DB_ARGS[@]}"
 		;;
 	*)
-		exec "$@"
+		. /opt/venv/bin/activate && exec "$@"
 esac
 
 exit 1

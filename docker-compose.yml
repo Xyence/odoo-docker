@@ -1,8 +1,8 @@
-# Se necesita docker y docker-compose. Ejecutar con:
+# docker and docker-compose are required. Run with:
 # docker-compose -f docker-compose.yml up
-# Se iniciará un contenedor con postgresql y otro con odoo. 
-# Para evitar conflictos con el puerto en local si ya hay postgres
-# se usa el 5433 en lugar del estándar 5432 de postgresql.
+# It will start a container with postgresql and another with odoo.
+# To avoid conflicts with the local port if there is already postgres
+# 5433 is used instead of the postgresql standard 5432.
 ---
 version: '3.7'
 services:
@@ -10,17 +10,17 @@ services:
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
-    image: postgres:9.6
+    image: postgres:15
     ports:
       - "5433:5432"
     restart: always
     volumes:
       - data_storage:/var/lib/postgresql/data
   odoo12:
-    container_name: odoo12
+    container_name: odoo16
     depends_on:
       - db
-    image: "rubencabrera/odoo-docker:12.12.0"
+    image: "xyence/odoo-docker:16.0.0"
     ports: 
       - "8069:8069"
       - "8071:8071"

@@ -113,5 +113,5 @@ imagen funciona lo bastante bien como para no requerir mi tiempo, puede que
 tarde más de lo que esperas si tu problema es complicado, pero haré lo posible
 por ayudar. 
 
-[issue-link]: https://github.com/rubencabrera/odoo-docker/issues/new
+[issue-link]: https://github.com/xyence/odoo-docker/issues/new
 [compose-install]: https://docs.docker.com/compose/install/]
