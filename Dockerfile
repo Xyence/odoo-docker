@@ -22,8 +22,7 @@ RUN git clone --branch 16.0 --depth 1 https://github.com/oca/ocb.git /opt/odoo
 
 # Odoo Community Association repositories
 WORKDIR /opt/repos/oca
-RUN # OCA apps / modules \
-    git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.git; \
+RUN git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-budgeting.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-closing.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-consolidation.git; \
@@ -80,8 +79,10 @@ RUN # OCA apps / modules \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website-cms.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website-themes.git; \
-    # Non-OCA apps / modules \
-    git clone --branch 16.0 --depth 1 https://github.com/Yenthe666/auto_backup.git;
+    
+# Non-OCA apps / modules
+WORKDIR /opt/repos/other
+RUN git clone --branch 16.0 --depth 1 https://github.com/Yenthe666/auto_backup.git;
 
 
 # Configuración
