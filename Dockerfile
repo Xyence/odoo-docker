@@ -1,5 +1,5 @@
 # DOCKER image to run odoo 12 with Odoo Community Backports and OCA addons
-FROM xyence/odoo-base-image:16.0.0
+FROM xyence/odoo-base-image:16.0.1
 
 EXPOSE 8069 8071 8072
 ENV LANG C.UTF-8
@@ -22,7 +22,8 @@ RUN git clone --branch 16.0 --depth 1 https://github.com/oca/ocb.git /opt/odoo
 
 # Odoo Community Association repositories
 WORKDIR /opt/repos/oca
-RUN git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.git; \
+RUN # OCA apps / modules \
+    git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-budgeting.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-closing.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/account-consolidation.git; \
@@ -77,7 +78,10 @@ RUN git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.gi
     git clone --branch 16.0 --depth 1 https://github.com/oca/stock-logistics-workflow.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/web.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website.git; \
-    git clone --branch 16.0 --depth 1 https://github.com/oca/website-cms.git;
+    git clone --branch 16.0 --depth 1 https://github.com/oca/website-cms.git; \
+    git clone --branch 16.0 --depth 1 https://github.com/oca/website-themes.git; \
+    # Non-OCA apps / modules \
+    git clone --branch 16.0 --depth 1 https://github.com/Yenthe666/auto_backup.git;
 
 
 # Configuración

@@ -32,11 +32,11 @@ set -e
 : ${OSV_MEMORY_AGE_LIMIT:="1"}
 : ${OSV_MEMORY_COUNT_LIMIT:="False"}
 : ${PIDFILE:="None"}
-: ${PROXY_MODE:="False"}
+: ${PROXY_MODE:="True"}
 : ${REPORTGZ:="False"}
 : ${SECURE_CERT_FILE:="server.cert"}
 : ${SECURE_pkey_FILE:="server.pkey"}
-: ${SERVER_WIDE_MODULES:="None"}
+: ${SERVER_WIDE_MODULES:="base,web,dbfilter_from_header"}
 : ${SMTP_PASSWORD:="False"}
 : ${SMTP_PORT:="25"}
 : ${SMTP_SERVER:="localhost"}
@@ -57,7 +57,7 @@ set -e
 : ${XMLRPCS:="True"}
 : ${XMLRPCS_PORT:="8071"}
 : ${DB_HOST:="db"}
-: ${DB_FILTER:="^%d$"}
+: ${DB_FILTER:=".*"}
 # Estas no las estabamos metiendo:
  ## echo 'logfile = '${LOGFILE:-"/var/log/odoo/odoo-server.log"} >> /opt/config/odoo-server.conf; \
  ## echo 'pg_path = '${PG_PATH:-None} >> /opt/config/odoo-server.conf; \
