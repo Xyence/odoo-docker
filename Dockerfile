@@ -78,7 +78,7 @@ RUN git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.gi
     git clone --branch 16.0 --depth 1 https://github.com/oca/web.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website-cms.git; \
-    git clone --branch 16.0 --depth 1 https://github.com/oca/website-themes.git; \
+    git clone --branch 16.0 --depth 1 https://github.com/oca/website-themes.git; 
     
 # Non-OCA apps / modules
 WORKDIR /opt/repos/other
