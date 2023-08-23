@@ -8,6 +8,7 @@ RUN mkdir /opt/odoo; \
     mkdir /var/log/odoo; \
     mkdir /var/lib/odoo; \
     mkdir /opt/repos; \
+    mkdir /opt/backups; \
     mkdir -p /opt/repos/oca; \
     mkdir -p /opt/repos/other
 RUN useradd --home /opt/odoo --shell /bin/bash odoo

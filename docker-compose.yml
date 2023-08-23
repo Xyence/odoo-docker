@@ -33,6 +33,7 @@ services:
     restart: always
     volumes:
       - odoo_data:/var/lib/odoo
+      - /opt/backups/zirrus/auto_backup:/opt/backups
 
 networks:
   default:
