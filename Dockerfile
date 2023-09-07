@@ -13,7 +13,8 @@ RUN mkdir /opt/odoo; \
     mkdir -p /opt/repos/other
 RUN useradd --home /opt/odoo --shell /bin/bash odoo
 RUN chown -R odoo:odoo /opt/odoo; chown -R odoo:odoo /var/lib/odoo; \
-    chown -R odoo:odoo /var/log/odoo; chown -R odoo:odoo /opt/repos
+    chown -R odoo:odoo /var/log/odoo; chown -R odoo:odoo /opt/repos; \
+    chown -R odoo:odoo /opt/backups
 
 # Con lo siguiente, cambiamos al usuario odoo y el path donde ejecuta los
 # comandos que se indiquen después.
@@ -93,7 +94,8 @@ RUN mkdir /opt/config
 COPY ./odoo-server.conf /opt/config/odoo-server.conf
 ENV OPENERP_SERVER /opt/config/odoo-server.conf
 
-RUN chown -R odoo:odoo /opt/config
+RUN chown -R odoo:odoo /opt/config 
+
 RUN sed -i '/^#.*Storage/s/^#//' /etc/systemd/journald.conf
 #RUN mkdir -p /var/lib/odoo \
     #&& chown -R odoo /var/lib/odoo
@@ -102,7 +104,7 @@ RUN sed -i '/^#.*Storage/s/^#//' /etc/systemd/journald.conf
 # for users addons
 RUN mkdir -p /mnt/extra-addons \
     && chown -R odoo:odoo /mnt/extra-addons \
-    && chown -R odoo:odoo /var/lib/odoo
+    && chown -R odoo:odoo /var/lib/odoo 
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 COPY ./entrypoint.sh /opt/entrypoint.sh
