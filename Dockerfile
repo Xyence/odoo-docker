@@ -1,5 +1,5 @@
 # DOCKER image to run odoo 12 with Odoo Community Backports and OCA addons
-FROM xyence/odoo-base-image:16.0.1
+FROM b1tbucket/odoo-base-image:16.0.1
 
 EXPOSE 8069 8071 8072
 ENV LANG C.UTF-8
