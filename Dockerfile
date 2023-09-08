@@ -77,6 +77,7 @@ RUN git clone --branch 16.0 --depth 1 https://github.com/oca/account-analytic.gi
     git clone --branch 16.0 --depth 1 https://github.com/oca/stock-logistics-transport.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/stock-logistics-warehouse.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/stock-logistics-workflow.git; \
+    git clone --branch 16.0 --depth 1 https://github.com/OCA/timesheet.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/web.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website.git; \
     git clone --branch 16.0 --depth 1 https://github.com/oca/website-cms.git; \
